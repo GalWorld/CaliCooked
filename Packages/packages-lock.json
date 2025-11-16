@@ -1,5 +1,11 @@
 {
   "dependencies": {
+    "com.tripolygon.umodeler-x": {
+      "version": "file:com.tripolygon.umodeler-x-1.1.26-pro/com.tripolygon.umodeler-x-1.1.26-pro.tgz",
+      "depth": 0,
+      "source": "local-tarball",
+      "dependencies": {}
+    },
     "com.unity.ai.navigation": {
       "version": "2.0.9",
       "depth": 0,
@@ -231,6 +237,13 @@
         "com.unity.modules.jsonserialize": "1.0.0"
       },
       "url": "https://packages.unity.com"
+    },
+    "com.wooshii.hierarchydecorator": {
+      "version": "https://github.com/WooshiiDev/HierarchyDecorator.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "112f6c7a5dffb09b91650cc094ea5e438157fbea"
     },
     "com.unity.modules.accessibility": {
       "version": "1.0.0",
