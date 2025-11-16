@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Station
   - Ingridient
+  - hand
   layers:
   - Default
   - TransparentFX

@@ -10,18 +10,17 @@ public interface IInteractable
 public class Interact : MonoBehaviour
 {
      [Header("Interaction Settings")]
-    public Transform InteractorSource;   
-    public float InteractRange = 3f;     
+    private IInteractable[] interactables;  
     private InputSystem_Actions inputActions;
 
     private void Awake()
     {
         inputActions = new InputSystem_Actions();
 
-        if (InteractorSource == null)
+        interactables = GetComponentsInChildren<IInteractable>();
+        if (interactables == null || interactables.Length == 0)
         {
-            Debug.LogWarning("Interact: InteractorSource is not assigned. Using this.transform as fallback.");
-            InteractorSource = transform;
+            Debug.LogWarning("Interact: No IInteractable found on this GameObject or its children.");
         }
     }
 
@@ -46,14 +45,11 @@ public class Interact : MonoBehaviour
 
     private void TryInteract()
     {
-        Ray r = new Ray(InteractorSource.position, InteractorSource.forward);
+        if (interactables == null) return;
 
-        if (Physics.Raycast(r, out RaycastHit hitInfo, InteractRange))
+        foreach (var interactable in interactables)
         {
-            if (hitInfo.collider.gameObject.TryGetComponent(out IInteractable interactObj))
-            {
-                interactObj.Interact();
-            }
+            interactable.Interact();
         }
     }
 }
