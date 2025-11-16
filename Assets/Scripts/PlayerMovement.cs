@@ -46,7 +46,6 @@ public class PlayerMovement : MonoBehaviour
     private void OnMovePerformed(InputAction.CallbackContext ctx)
     {
         InputMovement = ctx.ReadValue<Vector2>();
-        // Debug.Log($"Move Input: {InputMovement}");
     }
 
     private void OnMoveCanceled(InputAction.CallbackContext ctx)
@@ -70,9 +69,7 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 direction = forward * inputY + right * inputX;
 
-        Vector3 movementAmountScaled = direction * _speed * Time.fixedDeltaTime;
-
-        rb.MovePosition(rb.position + movementAmountScaled);
+        rb.linearVelocity = direction * _speed;
     }
 
 }
