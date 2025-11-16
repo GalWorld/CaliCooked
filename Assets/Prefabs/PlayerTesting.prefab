@@ -171,8 +171,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8757b06fccdd31f4e8175cecfce76551, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Interact
-  InteractorSource: {fileID: 8838913584229778189}
-  InteractRange: 4.03
 --- !u!1 &2726684039556538451
 GameObject:
   m_ObjectHideFlags: 0
@@ -594,7 +592,7 @@ GameObject:
   - component: {fileID: 2105657216860144183}
   m_Layer: 0
   m_Name: Hand
-  m_TagString: Untagged
+  m_TagString: hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -608,8 +606,8 @@ Transform:
   m_GameObject: {fileID: 5508052774228713437}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.785}
-  m_LocalScale: {x: 0.61993, y: 0.61993, z: 0.61993}
+  m_LocalPosition: {x: -0.024, y: 0.038, z: 0.785}
+  m_LocalScale: {x: 0.48267135, y: 0.27780926, z: 0.7218465}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3017056615766649975}

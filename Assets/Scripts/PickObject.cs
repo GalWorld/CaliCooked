@@ -7,30 +7,32 @@ public class PickObject : MonoBehaviour, IInteractable
    public GameObject handPoint;
    private GameObject pickedObject = null;
    private Rigidbody candidateRb = null; 
-
+   private bool isInStation = false;
+   private InteractorDebug currentStation = null;
 
     public void Interact()
     {
-        // If we already have an object, Interact will DROP it
+        if (isInStation && currentStation != null)
+        {
+            currentStation.Cook();
+            // Si NO quieres que en estación haga pick/drop, puedes hacer: return;
+            // return;
+        }
         if (pickedObject != null)
         {
             Rigidbody pickedRb = pickedObject.GetComponent<Rigidbody>();
             if (pickedRb != null)
             {
-                // Re-enable physics
                 pickedRb.useGravity = true;
                 pickedRb.isKinematic = false;
             }
 
-            // Detach from hand
             pickedObject.transform.SetParent(null);
 
-            // Clear reference
             pickedObject = null;
             return;
         }
 
-        // If we do NOT have an object, Interact will PICK the candidate (if any)
         if (candidateRb != null)
         {
             candidateRb.useGravity = false;
@@ -41,30 +43,45 @@ public class PickObject : MonoBehaviour, IInteractable
 
             pickedObject = candidateRb.gameObject;
 
-            // Optional: clear candidate because it's now in hand
             candidateRb = null;
         }
     }
 
     private void OnTriggerStay(Collider other)
     {
-        // Only consider objects with the proper tag and if we don't already hold something
         if (other.CompareTag("Ingridient") && pickedObject == null)
         {
             if (other.TryGetComponent(out Rigidbody rb))
             {
                 candidateRb = rb;
+                //Debug.Log("Cogí una pera");
             }
         }
     }
+    void OnTriggerEnter(Collider other)
+    {
+          if (other.CompareTag("Station"))
+        {
+            isInStation = true;
 
+            if (other.TryGetComponent(out InteractorDebug station))
+            {
+                currentStation = station;
+            }
+        }
+    }
     private void OnTriggerExit(Collider other)
     {
-        // If the current candidate leaves the trigger, clear the reference
         if (candidateRb != null && other.gameObject == candidateRb.gameObject)
         {
             candidateRb = null;
         }
+
+        if (currentStation != null && other.gameObject == currentStation.gameObject)
+        {
+            currentStation = null;
+        }
     }
+
 
 }

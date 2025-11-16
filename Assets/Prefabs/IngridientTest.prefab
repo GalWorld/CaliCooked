@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2943033384505196674}
   - component: {fileID: 6669482567609323212}
   - component: {fileID: 1749854754585407611}
+  - component: {fileID: 6998316775508064101}
   m_Layer: 0
   m_Name: IngridientTest
   m_TagString: Ingridient
@@ -139,3 +140,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6998316775508064101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2766771527960298871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf980bfd426ae7f4bb053e7b3d603736, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IngredientTest
+  isCooked: 0
