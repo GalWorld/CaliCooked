@@ -5,8 +5,9 @@ using UnityEngine;
 public class SORecipe : ScriptableObject
 {
     public string id;
-    public string Nombre;
-    public AudioClip AudioDelPedido;
-    public float Paciencia = 2;
-    public List<SOIngredient> Ingredients;
+    public string name;
+    public string description;
+    public AudioClip audio;
+    public float patience = 20;
+    public List<SOIngredient> ingredients;
 }

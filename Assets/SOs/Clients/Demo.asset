@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dfcae9a7489d7b46a1b240b73938fdd, type: 3}
   m_Name: Demo
   m_EditorClassIdentifier: Assembly-CSharp::SOClients
-  Nombre: []
-  ClientePrefab: {fileID: 0}
-  Recetas:
+  names:
+  - Manuela
+  - Tobias
+  recipes:
   - {fileID: 11400000, guid: 3921c956cbe5e8046a564ab28d12e323, type: 2}

@@ -1,15 +1,38 @@
-using UnityEngine;
+using System;
 
 [System.Serializable]
 public class Order
 {
-    public GameObject client;
+    public string orderId, instanceId;
+    public string clientName;
     public SORecipe recipe;
 
-    public Order(GameObject client, SORecipe recipe)
+    public float totalPatience;
+    public float currentPatience;
+
+    public event Action<Order> OnExpired;
+
+    public Order(string clientName, SORecipe recipe, float patience)
     {
-        this.client = client;
+        this.instanceId = System.Guid.NewGuid().ToString();
+        this.orderId = recipe.id;
         this.recipe = recipe;
+        this.clientName = clientName;
+        this.totalPatience = patience;
+        this.currentPatience = patience;
     }
 
+    public void Tick(float deltaTime)
+    {
+        if (currentPatience <= 0f)
+            return;
+
+        currentPatience -= deltaTime;
+
+        if (currentPatience <= 0f)
+        {
+            currentPatience = 0f;
+            OnExpired?.Invoke(this);
+        }
+    }
 }

@@ -10,7 +10,7 @@ public class Dish : MonoBehaviour
         isComplete = currentIngredients.TrueForAll(ingredient => ingredient.isComplete);
     }
 
-
+    //Esto es una prueba para demostrar como ponerle al plato el state de enplatado y agregar el ingrediente al plato;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Ingridient"))
@@ -23,7 +23,7 @@ public class Dish : MonoBehaviour
         }
 
     }
-
+    //Esto es una prueba para demostrar como cambiar el state de un ingrediente
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Ingridient"))

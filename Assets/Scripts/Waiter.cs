@@ -12,13 +12,15 @@ public class Waiter : MonoBehaviour
 
         foreach (var order in activeOrders)
         {
-            bool sameIngredients = order.recipe.Ingredients.Select(ingredient => ingredient.id)
+            bool sameIngredients = order.recipe.ingredients.Select(ingredient => ingredient.id)
                 .OrderBy(x => x).SequenceEqual(dishIngredients.Select(controller => controller.GetIngredientId()).OrderBy(x => x));
 
             if (sameIngredients)
             {
                 Debug.Log("Orden Entregada");
                 OrderManager.instance.CompleteOrder(order.recipe.id);
+
+                //Verificar si se destruye sin animacion, de lo contrario activar animacion trigger de destroy
                 Destroy(dish.gameObject);
                 return;
             }

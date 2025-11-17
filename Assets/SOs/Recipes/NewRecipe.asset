@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: NewRecipe
   m_EditorClassIdentifier: Assembly-CSharp::SORecipe
   id: testRecipe
-  Nombre: Test
-  AudioDelPedido: {fileID: 0}
-  Paciencia: 2
-  Ingredients:
+  name: Test
+  description: Esta es una receta test
+  audio: {fileID: 0}
+  patience: 20
+  ingredients:
   - {fileID: 11400000, guid: d3e18e2a8de379d458e170fc98265dd6, type: 2}
