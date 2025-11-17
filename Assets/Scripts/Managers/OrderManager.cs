@@ -10,7 +10,7 @@ public class OrderManager : MonoBehaviour
     public int ordersCompleted = 0;
     public List<Order> activeOrders = new();
 
-    [Header("Órdenes")]
+    [Header("ï¿½rdenes")]
     [SerializeField] private int maxOrdersSpawned = 3;
 
 
@@ -65,9 +65,9 @@ public class OrderManager : MonoBehaviour
         ordersCompleted++;
         activeOrders.Remove(order);
 
-        // Aquí podrías notificar al HUD:
+        // Aquï¿½ podrï¿½as notificar al HUD:
         // HUDOrderManager.instance.OnOrderCompleted(order);
-        HUDOrdersTest.instance.OnOrderCompleted(order);
+        //HUDOrdersTest.instance.OnOrderCompleted(order);
     }
 
     private IEnumerator SpawnOrdersRoutine()
@@ -111,7 +111,7 @@ public class OrderManager : MonoBehaviour
 
         // Notificar al HUD para que instancie la UI:
         // HUDOrderManager.instance.CreateOrderUI(newOrder);
-        HUDOrdersTest.instance.CreateOrderUI(newOrder);
+        //HUDOrdersTest.instance.CreateOrderUI(newOrder);
     }
 
     /// <summary>
@@ -127,9 +127,9 @@ public class OrderManager : MonoBehaviour
 
         Debug.Log($"Order expirada: {order.instanceId}, de {order.orderId}");
 
-        // Penalización / feedback / HUD:
+        // Penalizaciï¿½n / feedback / HUD:
 
         // HUDOrderManager.instance.OnOrderExpired(order);
-        HUDOrdersTest.instance.OnOrderExpired(order);
+        //HUDOrdersTest.instance.OnOrderExpired(order);
     }
 }

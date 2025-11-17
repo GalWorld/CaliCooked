@@ -8,7 +8,7 @@ public class PickObject : MonoBehaviour, IInteractable
    private GameObject pickedObject = null;
    private Rigidbody candidateRb = null; 
    private bool isInStation = false;
-   private InteractorDebug currentStation = null;
+   private StationController currentStation = null;
 
     public void Interact()
     {
@@ -64,7 +64,7 @@ public class PickObject : MonoBehaviour, IInteractable
         {
             isInStation = true;
 
-            if (other.TryGetComponent(out InteractorDebug station))
+            if (other.TryGetComponent(out StationController station))
             {
                 currentStation = station;
             }

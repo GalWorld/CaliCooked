@@ -3,25 +3,53 @@ using UnityEngine;
 public class StationController : MonoBehaviour
 {
     public StateEnum idState;
+    
+    private bool isCooking = false;
+    private IngredientController currentIngredient = null;
 
-    public void ApplyState(IngredientController ingController)
+    void OnTriggerEnter(Collider other)
     {
-        var ingredientState = ingController.GetStateValue(idState);
+        if (other.TryGetComponent(out IngredientController ingredient))
+            {
+                var ingredientState = ingredient.GetStateValue(idState);
 
-        if (ingredientState != null && ingredientState != true)
-        {
-            ingController.SetStateValue(idState, true);
-        }
+                if (ingredientState != null && ingredientState != true && !isCooking)
+                {
+                    Debug.Log("Entró un ingrediente crudo en la estación");
+                    
+                    currentIngredient = ingredient;     
+                    
+                    other.gameObject.SetActive(false);   
+                    isCooking = true;
+                }
+                else
+                {
+                    Debug.Log("Este ingrediente ya está cocinado");
+                }
+            }
+            else
+            {
+                Debug.LogWarning("Objeto con tag 'Ingridient' no tiene IngredientController.");
+            }
     }
 
-
-    //Esto es una prueba para demostrar como cambiar el state de un ingrediente
-    private void OnCollisionEnter(Collision collision)
+    public void Cook()
     {
-        if (collision.body.CompareTag("Ingridient"))
+        if (isCooking && currentIngredient != null)
         {
-            var ingController = collision.body.GetComponent<IngredientController>();
-            ApplyState(ingController);
+            Debug.Log("Puedes cocinar");
+
+            GameObject ingredientGO = currentIngredient.gameObject;
+
+            ingredientGO.SetActive(true);
+
+            currentIngredient.SetStateValue(idState, true);
+
+            isCooking = false;
+        }
+        else
+        {
+            Debug.Log("Aún no puedes cocinar, necesitas un ingresiente pelele");
         }
     }
 }
