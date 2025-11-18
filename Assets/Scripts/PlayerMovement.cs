@@ -4,7 +4,8 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement Variables")]
-    public Transform cameraPivot;                
+    public Transform cameraPivot; 
+    public Transform cameraMachine;               
     [SerializeField] private float _speed = 4f;   
 
     public Vector2 InputMovement { get; private set; } = Vector2.zero;
@@ -41,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         MovementPlayer(InputMovement.x, InputMovement.y);
+        RotatePlayer();
     }
 
     private void OnMovePerformed(InputAction.CallbackContext ctx)
@@ -70,6 +72,14 @@ public class PlayerMovement : MonoBehaviour
         Vector3 direction = forward * inputY + right * inputX;
 
         rb.linearVelocity = direction * _speed;
+    }
+
+    public void RotatePlayer()
+    {
+        Vector3 lookDir = cameraMachine.forward;
+        lookDir.y = 0f;
+        Quaternion targetRotation = Quaternion.LookRotation(lookDir);
+        rb.MoveRotation(targetRotation);
     }
 
 }
