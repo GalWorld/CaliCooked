@@ -1,87 +1,73 @@
 using UnityEngine;
-using UnityEngine.XR;
 
 public class PickObject : MonoBehaviour, IInteractable
 {
+    [Header("References")]
+    [SerializeField] private Transform holdPoint;
 
-   public GameObject handPoint;
-   private GameObject pickedObject = null;
-   private Rigidbody candidateRb = null; 
-   private bool isInStation = false;
-   private StationController currentStation = null;
+    private GameObject currentLookIngredient = null;
+    private StationController currentLookStation = null;
+
+    private GameObject pickedObject = null;
 
     public void Interact()
     {
-        if (isInStation && currentStation != null)
+        // 1. Si el raycast esta sobre una station y no tiene nada en la mano, puede cocinar
+        if (currentLookStation != null&& pickedObject==null)
         {
-            currentStation.Cook();
-            // Si NO quieres que en estación haga pick/drop, puedes hacer: return;
-            // return;
-        }
-        if (pickedObject != null)
-        {
-            Rigidbody pickedRb = pickedObject.GetComponent<Rigidbody>();
-            if (pickedRb != null)
-            {
-                pickedRb.useGravity = true;
-                pickedRb.isKinematic = false;
-            }
-
-            pickedObject.transform.SetParent(null);
-
-            pickedObject = null;
+            currentLookStation.Cook();
             return;
         }
 
-        if (candidateRb != null)
+        if (pickedObject != null)
         {
-            candidateRb.useGravity = false;
-            candidateRb.isKinematic = true;
+            DropObject();
+            return;
+        }
 
-            candidateRb.transform.position = handPoint.transform.position;
-            candidateRb.transform.SetParent(handPoint.transform);
-
-            pickedObject = candidateRb.gameObject;
-
-            candidateRb = null;
+        if (currentLookIngredient != null)
+        {
+            PickObjectFromRay();
         }
     }
 
-    private void OnTriggerStay(Collider other)
+    private void PickObjectFromRay()
     {
-        if (other.CompareTag("Ingridient") && pickedObject == null)
+        pickedObject = currentLookIngredient;
+        pickedObject.transform.SetParent(holdPoint);
+        pickedObject.transform.localPosition = Vector3.zero;
+        pickedObject.transform.localRotation = Quaternion.identity;
+        if (pickedObject.TryGetComponent(out Rigidbody rb))
         {
-            if (other.TryGetComponent(out Rigidbody rb))
-            {
-                candidateRb = rb;
-                //Debug.Log("Cogí una pera");
-            }
+            rb.useGravity = false;
+            rb.isKinematic = true;
         }
     }
-    void OnTriggerEnter(Collider other)
+
+    private void DropObject()
     {
-          if (other.CompareTag("Station"))
-        {
-            isInStation = true;
+        pickedObject.transform.SetParent(null);
 
-            if (other.TryGetComponent(out StationController station))
-            {
-                currentStation = station;
-            }
+        if (pickedObject.TryGetComponent(out Rigidbody rb))
+        {
+            rb.useGravity = true;
+            rb.isKinematic = false;
         }
+
+        pickedObject = null;
     }
-    private void OnTriggerExit(Collider other)
+    public void SetIngredient(GameObject ingredient)
     {
-        if (candidateRb != null && other.gameObject == candidateRb.gameObject)
-        {
-            candidateRb = null;
-        }
-
-        if (currentStation != null && other.gameObject == currentStation.gameObject)
-        {
-            currentStation = null;
-        }
+        currentLookIngredient = ingredient;
     }
 
+    public void ClearIngredient()
+    {
+        currentLookIngredient = null;
+    }
 
+    public void SetStation(StationController station)
+    {
+        currentLookStation = station;
+    }
 }

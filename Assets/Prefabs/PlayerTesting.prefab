@@ -143,7 +143,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 116
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &2342134112096145543
 MonoBehaviour:
@@ -158,6 +158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   cameraPivot: {fileID: 3637133051298581277}
+  cameraMachine: {fileID: 1532355062849061273}
   _speed: 4
 --- !u!114 &6432104776390390571
 MonoBehaviour:
@@ -203,6 +204,7 @@ Transform:
   - {fileID: 8838913584229778189}
   - {fileID: 1532355062849061273}
   - {fileID: 6246965178257657250}
+  - {fileID: 1334900764198535431}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3381884259555586274
@@ -297,7 +299,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineFollow
   TrackerSettings:
     BindingMode: 4
-    PositionDamping: {x: 1, y: 1, z: 1}
+    PositionDamping: {x: 0, y: 0, z: 0}
     AngularDampingMode: 0
     RotationDamping: {x: 1, y: 1, z: 1}
     QuaternionDamping: 1
@@ -362,8 +364,8 @@ MonoBehaviour:
         CancelDeltaTime: 0
       InputValue: 0
       Driver:
-        AccelTime: 0.2
-        DecelTime: 0.2
+        AccelTime: 0
+        DecelTime: 0
     - Name: Look Y (Tilt)
       Owner: {fileID: 6246385258116881751}
       Enabled: 1
@@ -373,8 +375,8 @@ MonoBehaviour:
         CancelDeltaTime: 0
       InputValue: 0
       Driver:
-        AccelTime: 0.2
-        DecelTime: 0.2
+        AccelTime: 0
+        DecelTime: 0
   PlayerIndex: -1
   AutoEnableInputs: 1
 --- !u!1 &3860802118500045138
@@ -547,7 +549,7 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
---- !u!1 &4499164815718981419
+--- !u!1 &4824772795187492340
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -555,29 +557,47 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3017056615766649975}
+  - component: {fileID: 1334900764198535431}
+  - component: {fileID: 5631306664755271286}
   m_Layer: 0
-  m_Name: Handpoint
+  m_Name: CrossHairController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3017056615766649975
+--- !u!4 &1334900764198535431
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4499164815718981419}
+  m_GameObject: {fileID: 4824772795187492340}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -52.169918, y: 0, z: -8.042708}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8568439963928534434}
+  m_Father: {fileID: 7458090663286812118}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5631306664755271286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4824772795187492340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bdb585cb3aecf543bb9ceb81d6af102, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CrossHairController
+  playerCamera: {fileID: 4743285167923371539}
+  interactableLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  pickSystem: {fileID: 2105657216860144183}
 --- !u!1 &5508052774228713437
 GameObject:
   m_ObjectHideFlags: 0
@@ -587,8 +607,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8568439963928534434}
-  - component: {fileID: 2433841957890650767}
-  - component: {fileID: 2657391573659598653}
   - component: {fileID: 2105657216860144183}
   m_Layer: 0
   m_Name: Hand
@@ -610,57 +628,9 @@ Transform:
   m_LocalScale: {x: 0.48267135, y: 0.27780926, z: 0.7218465}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3017056615766649975}
+  - {fileID: 5964003605742499262}
   m_Father: {fileID: 8838913584229778189}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &2433841957890650767
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5508052774228713437}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &2657391573659598653
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5508052774228713437}
-  serializedVersion: 5
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &2105657216860144183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -673,7 +643,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e2a45e5e3ac9b048924b6b898d594c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PickObject
-  handPoint: {fileID: 4499164815718981419}
+  holdPoint: {fileID: 5964003605742499262}
+--- !u!1 &6650473814745957983
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5964003605742499262}
+  m_Layer: 0
+  m_Name: HoldPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5964003605742499262
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6650473814745957983}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.66, y: 0.75, z: 0.49}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8568439963928534434}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8698347705877539190
 GameObject:
   m_ObjectHideFlags: 0

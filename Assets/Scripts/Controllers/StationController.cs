@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class StationController : MonoBehaviour
 {
@@ -6,6 +7,8 @@ public class StationController : MonoBehaviour
     
     private bool isCooking = false;
     private IngredientController currentIngredient = null;
+    private GameObject ingredientGO;
+ 
 
     void OnTriggerEnter(Collider other)
     {
@@ -21,6 +24,7 @@ public class StationController : MonoBehaviour
                     
                     other.gameObject.SetActive(false);   
                     isCooking = true;
+
                 }
                 else
                 {
@@ -37,19 +41,27 @@ public class StationController : MonoBehaviour
     {
         if (isCooking && currentIngredient != null)
         {
-            Debug.Log("Puedes cocinar");
+            Debug.Log("Empezando a cocinar");
+            ingredientGO = currentIngredient.gameObject;
+            StartCoroutine(TimeForCooking());
 
-            GameObject ingredientGO = currentIngredient.gameObject;
-
-            ingredientGO.SetActive(true);
-
-            currentIngredient.SetStateValue(idState, true);
-
-            isCooking = false;
         }
         else
         {
             Debug.Log("Aún no puedes cocinar, necesitas un ingresiente pelele");
         }
     }
+
+    private IEnumerator TimeForCooking()
+    {
+        yield return new WaitForSeconds(5f);
+        
+            ingredientGO.SetActive(true);
+
+            currentIngredient.SetStateValue(idState, true);
+
+            isCooking = false;
+    }
+ 
 }
+

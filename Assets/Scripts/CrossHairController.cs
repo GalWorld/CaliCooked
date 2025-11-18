@@ -4,8 +4,11 @@ public class CrossHairController : MonoBehaviour
 {
     [Header("Raycast Settings")]
     [SerializeField] private Camera playerCamera;
-    [SerializeField] private float maxDistance = 5f;
+     private float maxDistance = 2f;
     [SerializeField] private LayerMask interactableLayers;
+
+    [Header("References")]
+    [SerializeField] private PickObject pickSystem;
 
     private void Update()
     {
@@ -14,17 +17,30 @@ public class CrossHairController : MonoBehaviour
 
     private void PerformRaycast()
     {
-        
+        pickSystem.ClearIngredient();
+        pickSystem.SetStation(null);
+
         Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
-        Debug.DrawRay(playerCamera.transform.position, playerCamera.transform.forward * 1.4f, Color.red);
+        Debug.DrawRay(playerCamera.transform.position, playerCamera.transform.forward * 2f, Color.red);
 
         if (Physics.Raycast(ray, out RaycastHit hit, maxDistance, interactableLayers))
         {
-            Debug.Log("Apuntando a: " + hit.collider.name);
-            
+            GameObject hitObj = hit.collider.gameObject;
 
-            // Si quieres, puedes ejecutar lógica especial cuando mire algo.
-            // hit.collider.GetComponent<Interactable>()?.Highlight();
+        
+            if (hitObj.CompareTag("Ingridient"))
+            {
+                pickSystem.SetIngredient(hitObj);
+            }
+
+          
+            if (hitObj.CompareTag("Station"))
+            {
+                if (hitObj.TryGetComponent(out StationController station))
+                {
+                    pickSystem.SetStation(station);
+                }
+            }
         }
     }
 }
