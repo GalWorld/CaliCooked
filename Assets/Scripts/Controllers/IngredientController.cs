@@ -48,6 +48,12 @@ public class IngredientController : MonoBehaviour
             currentStates.Find(states => states.id == state).value = value;
 
         CheckIngredientIsComplete();
+
+
+        
     }
+
+
+
 
 }

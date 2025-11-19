@@ -40,7 +40,7 @@ public class CrossHairController : MonoBehaviour
 
 
           
-            if (hitObj.CompareTag("Station"))
+            if (hitObj.CompareTag("Station")&& hitObj.name=="StationTestBlender")
             {
                 if (hitObj.TryGetComponent(out StationController station))
                 {

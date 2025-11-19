@@ -4,6 +4,7 @@ using System.Collections;
 public class StationController : MonoBehaviour
 {
     public StateEnum idState;
+    public OutputStation StationSelfAction;
     
     private bool isCooking = false;
     private IngredientController currentIngredient = null;
@@ -52,16 +53,17 @@ public class StationController : MonoBehaviour
         {
             Debug.Log("Aún no puedes cocinar, necesitas un ingresiente pelele");
         }
+
+       
     }
 
     private IEnumerator TimeForCooking()
     {
+        StationSelfAction.Generated(ingredientGO);
         yield return new WaitForSeconds(CookingTime);
-        
-            ingredientGO.SetActive(true);
 
             currentIngredient.SetStateValue(idState, true);
-
+            ingredientGO.SetActive(true);
             isCooking = false;
     }
  
