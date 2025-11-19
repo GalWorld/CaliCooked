@@ -14,8 +14,6 @@ public class BlendOutputStation: OutputStation
     {
         ingredientProccesed.transform.position= IngredientPosition.transform.position;
         Audio.Play();
-
-        
     }
 }
 
