@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6067629021671703315}
   - component: {fileID: 8298248043239379009}
   - component: {fileID: 7780628358611243379}
-  - component: {fileID: 9020570540435528161}
+  - component: {fileID: 6412489174467108826}
   m_Layer: 0
   m_Name: StationTest
   m_TagString: Station
@@ -112,7 +112,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &9020570540435528161
+--- !u!114 &6412489174467108826
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,6 +121,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1102387688293008324}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d7843a321ffc2a42bada4e1118e05ec, type: 3}
+  m_Script: {fileID: 11500000, guid: c1e0b7339bcf66d4ea8fa8b6d6aace91, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractorDebug
+  m_EditorClassIdentifier: Assembly-CSharp::StationController
+  idState: 0

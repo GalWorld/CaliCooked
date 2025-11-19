@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42d0025998908bf40a5c5607d296e7c5, type: 3}
+  m_Name: Empanada
+  m_EditorClassIdentifier: Assembly-CSharp::SORecipe
+  id: Empanada
+  name: Empanada
+  description: "Pa comer con aj\xED voj ajbes"
+  audio: {fileID: 0}
+  patience: 40
+  ingredients:
+  - {fileID: 11400000, guid: b82009a5bb222d34aa22c80c0deb2e3c, type: 2}
+  - {fileID: 11400000, guid: c8fc6da0171d207409a47e93d15fe5f6, type: 2}
+  - {fileID: 11400000, guid: d24035262fd43244e868d23dc9394adb, type: 2}
