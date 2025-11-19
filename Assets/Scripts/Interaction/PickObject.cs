@@ -40,10 +40,12 @@ public class PickObject : MonoBehaviour, IInteractable
 
     private void PickObjectFromRay()
     {
+        
         pickedObject = currentLookIngredient;
-        pickedObject.transform.SetParent(holdPoint);
+        pickedObject.transform.SetParent(holdPoint, true);
         pickedObject.transform.localPosition = Vector3.zero;
         pickedObject.transform.localRotation = Quaternion.identity;
+        
         if (pickedObject.TryGetComponent(out Rigidbody rb))
         {
             rb.useGravity = false;
