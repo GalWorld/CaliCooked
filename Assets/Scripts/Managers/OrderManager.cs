@@ -67,7 +67,7 @@ public class OrderManager : MonoBehaviour
 
         // Aqu� podr�as notificar al HUD:
         // HUDOrderManager.instance.OnOrderCompleted(order);
-        //HUDOrdersTest.instance.OnOrderCompleted(order);
+        HUDOrdersTest.instance.OnOrderCompleted(order);
     }
 
     private IEnumerator SpawnOrdersRoutine()
@@ -111,7 +111,7 @@ public class OrderManager : MonoBehaviour
 
         // Notificar al HUD para que instancie la UI:
         // HUDOrderManager.instance.CreateOrderUI(newOrder);
-        //HUDOrdersTest.instance.CreateOrderUI(newOrder);
+        HUDOrdersTest.instance.CreateOrderUI(newOrder);
     }
 
     /// <summary>
@@ -130,6 +130,6 @@ public class OrderManager : MonoBehaviour
         // Penalizaci�n / feedback / HUD:
 
         // HUDOrderManager.instance.OnOrderExpired(order);
-        //HUDOrdersTest.instance.OnOrderExpired(order);
+        HUDOrdersTest.instance.OnOrderExpired(order);
     }
 }

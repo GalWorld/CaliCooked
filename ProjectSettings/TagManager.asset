@@ -7,6 +7,8 @@ TagManager:
   - Station
   - Ingridient
   - hand
+  - Dish
+  - Inplate
   layers:
   - Default
   - TransparentFX

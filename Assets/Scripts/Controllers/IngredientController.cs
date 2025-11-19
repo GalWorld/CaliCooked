@@ -15,7 +15,10 @@ public class IngredientController : MonoBehaviour
             currentStates.Add(new StationDictionary(state, false));
         }
     }
-
+    public bool CheckIngredientIsPlatable()
+    {
+        return currentStates.TrueForAll(states => states.id != StateEnum.plate ? states.value : true);
+    }
 
     private void CheckIngredientIsComplete()
     {

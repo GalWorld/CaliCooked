@@ -10,6 +10,13 @@ public class PickObject : MonoBehaviour, IInteractable
 
     private GameObject pickedObject = null;
 
+    private void Update()
+    {
+        if(pickedObject != null && pickedObject.CompareTag("Inplate"))
+        {
+            DropObject();
+        }
+    }
     public void Interact()
     {
         // 1. Si el raycast esta sobre una station y no tiene nada en la mano, puede cocinar

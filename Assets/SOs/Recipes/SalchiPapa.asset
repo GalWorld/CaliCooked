@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 42d0025998908bf40a5c5607d296e7c5, type: 3}
-  m_Name: NewRecipe
+  m_Name: SalchiPapa
   m_EditorClassIdentifier: Assembly-CSharp::SORecipe
-  id: testRecipe
-  name: Test
-  description: Esta es una receta test
+  id: SalchiPapa
+  name: SalchiPapa
+  description: 
   audio: {fileID: 0}
   patience: 20
   ingredients:
-  - {fileID: 11400000, guid: d3e18e2a8de379d458e170fc98265dd6, type: 2}
+  - {fileID: 11400000, guid: 6c30abf21d15ab342a1ed0f160036847, type: 2}
+  - {fileID: 11400000, guid: d24035262fd43244e868d23dc9394adb, type: 2}

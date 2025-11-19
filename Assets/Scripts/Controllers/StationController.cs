@@ -8,6 +8,8 @@ public class StationController : MonoBehaviour
     private bool isCooking = false;
     private IngredientController currentIngredient = null;
     private GameObject ingredientGO;
+
+    public int CookingTime;
  
 
     void OnTriggerEnter(Collider other)
@@ -54,7 +56,7 @@ public class StationController : MonoBehaviour
 
     private IEnumerator TimeForCooking()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(CookingTime);
         
             ingredientGO.SetActive(true);
 

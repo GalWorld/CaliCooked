@@ -27,11 +27,17 @@ public class CrossHairController : MonoBehaviour
         {
             GameObject hitObj = hit.collider.gameObject;
 
+            if (hitObj.CompareTag("Dish"))
+            {
+                pickSystem.SetIngredient(hitObj);
+                return;
+            }
         
             if (hitObj.CompareTag("Ingridient"))
             {
                 pickSystem.SetIngredient(hitObj);
             }
+
 
           
             if (hitObj.CompareTag("Station"))
