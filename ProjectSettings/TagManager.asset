@@ -9,6 +9,7 @@ TagManager:
   - hand
   - Dish
   - Inplate
+  - Box
   layers:
   - Default
   - TransparentFX

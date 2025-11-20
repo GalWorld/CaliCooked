@@ -7,6 +7,7 @@ public class PickObject : MonoBehaviour, IInteractable
 
     private GameObject currentLookIngredient = null;
     private StationController currentLookStation = null;
+    private BoxController currentLookBox = null;
 
     private GameObject pickedObject = null;
 
@@ -29,6 +30,12 @@ public class PickObject : MonoBehaviour, IInteractable
         if (pickedObject != null)
         {
             DropObject();
+            return;
+        }
+
+        if (currentLookBox != null && pickedObject == null)
+        {
+            currentLookBox.SpawnIngredient();
             return;
         }
 
@@ -78,5 +85,10 @@ public class PickObject : MonoBehaviour, IInteractable
     public void SetStation(StationController station)
     {
         currentLookStation = station;
+    }
+    
+    public void SetBox(BoxController box)
+    {
+        currentLookBox = box;
     }
 }
