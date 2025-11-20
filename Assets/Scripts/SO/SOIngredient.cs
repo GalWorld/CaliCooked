@@ -7,4 +7,6 @@ public class SOIngredient : ScriptableObject
     public string id;
     public List<StateEnum> States = new List<StateEnum> { StateEnum.plate };
 
+   
+
 }

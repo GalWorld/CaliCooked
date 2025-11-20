@@ -7,6 +7,7 @@ public class PickObject : MonoBehaviour, IInteractable
 
     private GameObject currentLookIngredient = null;
     private StationController currentLookStation = null;
+    private BoxController currentLookBox = null;
 
     private GameObject pickedObject = null;
 
@@ -32,6 +33,12 @@ public class PickObject : MonoBehaviour, IInteractable
             return;
         }
 
+        if (currentLookBox != null && pickedObject == null)
+        {
+            currentLookBox.SpawnIngredient();
+            return;
+        }
+
         if (currentLookIngredient != null)
         {
             PickObjectFromRay();
@@ -40,10 +47,12 @@ public class PickObject : MonoBehaviour, IInteractable
 
     private void PickObjectFromRay()
     {
+        
         pickedObject = currentLookIngredient;
-        pickedObject.transform.SetParent(holdPoint);
+        pickedObject.transform.SetParent(holdPoint, true);
         pickedObject.transform.localPosition = Vector3.zero;
         pickedObject.transform.localRotation = Quaternion.identity;
+        
         if (pickedObject.TryGetComponent(out Rigidbody rb))
         {
             rb.useGravity = false;
@@ -76,5 +85,10 @@ public class PickObject : MonoBehaviour, IInteractable
     public void SetStation(StationController station)
     {
         currentLookStation = station;
+    }
+    
+    public void SetBox(BoxController box)
+    {
+        currentLookBox = box;
     }
 }

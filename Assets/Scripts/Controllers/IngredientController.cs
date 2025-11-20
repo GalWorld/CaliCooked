@@ -10,18 +10,24 @@ public class IngredientController : MonoBehaviour
     private void Start()
     {
         currentStates = new();
-        foreach (var state in ingredient.States)
-        {
-            currentStates.Add(new StationDictionary(state, false));
-        }
+        if (ingredient.States.Count == 0) return;
+
+        currentStates.Add(new StationDictionary(ingredient.States[0], false));
     }
     public bool CheckIngredientIsPlatable()
     {
+        if (currentStates.FindIndex(state => state.id == StateEnum.plate) == -1) return false;
         return currentStates.TrueForAll(states => states.id != StateEnum.plate ? states.value : true);
     }
 
     private void CheckIngredientIsComplete()
     {
+        if(currentStates.Count < ingredient.States.Count)
+        {
+            currentStates.Add(new StationDictionary(ingredient.States[currentStates.Count], false));
+            isComplete = false;
+            return;
+        }
         isComplete = currentStates.TrueForAll(states => states.value);
     }
 
@@ -48,6 +54,12 @@ public class IngredientController : MonoBehaviour
             currentStates.Find(states => states.id == state).value = value;
 
         CheckIngredientIsComplete();
+
+
+        
     }
+
+
+
 
 }
