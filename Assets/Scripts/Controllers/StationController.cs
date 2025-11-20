@@ -5,13 +5,14 @@ public class StationController : MonoBehaviour
 {
     public StateEnum idState;
     public OutputStation StationSelfAction;
-    
     private bool isCooking = false;
     private IngredientController currentIngredient = null;
     private GameObject ingredientGO;
+    private bool isCurrentCooking= false;
 
     public int CookingTime;
- 
+
+
 
     void OnTriggerEnter(Collider other)
     {
@@ -42,11 +43,13 @@ public class StationController : MonoBehaviour
 
     public void Cook()
     {
-        if (isCooking && currentIngredient != null)
+        if (isCooking && currentIngredient != null&&!isCurrentCooking)
         {
+            isCurrentCooking=true;
             Debug.Log("Empezando a cocinar");
             ingredientGO = currentIngredient.gameObject;
             StartCoroutine(TimeForCooking());
+
 
         }
         else
@@ -60,11 +63,13 @@ public class StationController : MonoBehaviour
     private IEnumerator TimeForCooking()
     {
         StationSelfAction.Generated(ingredientGO);
+
         yield return new WaitForSeconds(CookingTime);
 
             currentIngredient.SetStateValue(idState, true);
             ingredientGO.SetActive(true);
             isCooking = false;
+            isCurrentCooking=false;
     }
  
 }

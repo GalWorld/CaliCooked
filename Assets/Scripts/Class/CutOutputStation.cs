@@ -1,5 +1,5 @@
 using UnityEngine;
-public class BlendOutputStation: OutputStation
+public class CutOutputStation: OutputStation
 {
     [SerializeField] private Transform IngredientPosition;
     private AudioSource Audio;
@@ -16,7 +16,7 @@ public class BlendOutputStation: OutputStation
         Audio.Play();
         if (ingredientProccesed.TryGetComponent(out IngredientState ingredient))
         {
-            ingredient.ChangeMesh(StateEnum.blend);
+            ingredient.ChangeMesh(StateEnum.cut);
             
         };
         
