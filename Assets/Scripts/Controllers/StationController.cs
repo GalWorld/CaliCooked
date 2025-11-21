@@ -8,7 +8,8 @@ public class StationController : MonoBehaviour
     private bool isCooking = false;
     private IngredientController currentIngredient = null;
     private GameObject ingredientGO;
-    private bool isCurrentCooking= false;
+    private bool isCurrentCooking = false;
+    private float currentCookingTime;
 
     public int CookingTime;
 
@@ -64,13 +65,28 @@ public class StationController : MonoBehaviour
     {
         StationSelfAction.Generated(ingredientGO);
 
-        yield return new WaitForSeconds(CookingTime);
+        float elapsed = 0f;
+
+        currentCookingTime = 0;
+
+        while (elapsed < CookingTime)
+        {
+            elapsed += Time.deltaTime;
+
+            currentCookingTime = Mathf.Clamp01(elapsed / CookingTime);
+            yield return null;
+        }
 
         currentIngredient.SetStateValue(idState, true);
-        ingredientGO.SetActive(true);
+        StationSelfAction.Degenerated(ingredientGO);
         isCooking = false;
-        isCurrentCooking=false;
-        StationSelfAction.Degenerated();
+        isCurrentCooking = false;
+    }
+
+    public bool IsCooking() => isCurrentCooking;
+    public float GetCurrentCoookingTime()
+    {
+        return currentCookingTime;
     }
  
 }
