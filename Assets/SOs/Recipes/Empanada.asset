@@ -17,6 +17,7 @@ MonoBehaviour:
   description: "Pa comer con aj\xED voj ajbes"
   audio: {fileID: 0}
   patience: 40
+  model: {fileID: 8356039975402876759, guid: 9f96d300f362d304eb31d0df464ea638, type: 3}
   ingredients:
   - {fileID: 11400000, guid: b82009a5bb222d34aa22c80c0deb2e3c, type: 2}
   - {fileID: 11400000, guid: c8fc6da0171d207409a47e93d15fe5f6, type: 2}
