@@ -66,10 +66,11 @@ public class StationController : MonoBehaviour
 
         yield return new WaitForSeconds(CookingTime);
 
-            currentIngredient.SetStateValue(idState, true);
-            ingredientGO.SetActive(true);
-            isCooking = false;
-            isCurrentCooking=false;
+        currentIngredient.SetStateValue(idState, true);
+        ingredientGO.SetActive(true);
+        isCooking = false;
+        isCurrentCooking=false;
+        StationSelfAction.Degenerated();
     }
  
 }

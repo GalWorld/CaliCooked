@@ -21,6 +21,11 @@ public class CutOutputStation: OutputStation
         };
         
     }
+
+    public override void Degenerated()
+    {
+
+    }
 }
 
 

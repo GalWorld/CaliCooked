@@ -21,4 +21,9 @@ public class CookOutputStation : OutputStation
         };
         
     }
+
+    public override void Degenerated()
+    {
+
+    }
 }

@@ -14,6 +14,12 @@ public class IngredientController : MonoBehaviour
 
         currentStates.Add(new StationDictionary(ingredient.States[0], false));
     }
+
+    public Color GetColorIngredient()
+    {
+        return ingredient.color;
+    }
+
     public bool CheckIngredientIsPlatable()
     {
         if (currentStates.FindIndex(state => state.id == StateEnum.plate) == -1) return false;
