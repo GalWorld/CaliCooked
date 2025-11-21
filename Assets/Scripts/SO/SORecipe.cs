@@ -9,5 +9,6 @@ public class SORecipe : ScriptableObject
     public string description;
     public AudioClip audio;
     public float patience = 20;
+    public GameObject model;
     public List<SOIngredient> ingredients;
 }
