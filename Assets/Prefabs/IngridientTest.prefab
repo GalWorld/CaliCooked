@@ -69,7 +69,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: df58522fba028bd42aa1cb51f9951a7f, type: 2}
+  - {fileID: 2100000, guid: bc01c874a232a76488e54c4e3216d0a9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -153,5 +153,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IngredientController
   isComplete: 0
-  ingredient: {fileID: 11400000, guid: d3e18e2a8de379d458e170fc98265dd6, type: 2}
+  ingredient: {fileID: 11400000, guid: 49aa107221ec6ed428b52ff9bbd63a64, type: 2}
   currentStates: []

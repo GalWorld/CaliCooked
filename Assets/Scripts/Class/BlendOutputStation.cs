@@ -96,9 +96,11 @@ public class BlendOutputStation : OutputStation
                 liquidMaterial.SetFloat(playProperty, 0f);
 
             if(currentObject != null)
+            {
                 currentObject.SetActive(true);
                 if (currentObject.TryGetComponent(out IngredientState ingredient))
                     ingredient.ChangeMesh(StateEnum.blend);
+            }
         }
 
         blendRoutine = null;

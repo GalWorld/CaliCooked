@@ -4,7 +4,7 @@ public class CrossHairController : MonoBehaviour
 {
     [Header("Raycast Settings")]
     [SerializeField] private Camera playerCamera;
-     private float maxDistance = 2f;
+    [SerializeField] private float maxDistance = 2f;
     [SerializeField] private LayerMask interactableLayers;
 
     [Header("References")]

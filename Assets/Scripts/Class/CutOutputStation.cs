@@ -46,11 +46,13 @@ public class CutOutputStation : OutputStation
     {
         yield return new WaitForSeconds(waitForAnim);
         if (currentObject != null)
+        {
             currentObject.transform.position = ingredientPosition.position;
             currentObject.layer = 0;
             currentObject.SetActive(true);
             if (currentObject.TryGetComponent(out IngredientState ingredient))
                 ingredient.ChangeMesh(StateEnum.cut);
+        }
 
     }
 }

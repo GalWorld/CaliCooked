@@ -56,10 +56,13 @@ public class IngredientState : MonoBehaviour
             Destroy(transform.GetChild(0).gameObject);
 
         // Crear nuevo modelo visual como hijo
-        GameObject newChild = Instantiate(selectedModel.model, transform);
+        GameObject newChild = Instantiate(selectedModel.model);
+        newChild.transform.SetParent(transform);
         newChild.transform.localPosition = Vector3.zero;
-        newChild.transform.localRotation = Quaternion.identity;
+        transform.localScale = selectedModel.model.transform.localScale;
         newChild.transform.localScale = Vector3.one;
+        //newChild.transform.localRotation = Quaternion.identity;
+        //newChild.transform.localScale = Vector3.one;
     }
 
     /// <summary>
