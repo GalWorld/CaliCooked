@@ -33,7 +33,13 @@ public class Dish : MonoBehaviour
             {
                 if (i.CheckIngredientIsPlatable())
                 {
+                    other.transform.position = position.position;
+                    other.transform.localScale*=0.8f; 
+                    var ingController = other.GetComponent<IngredientController>();
+                    ingController?.SetStateValue(StateEnum.plate, true);
+                    currentIngredients.Add(ingController);
                     other.gameObject.tag = "Inplate";
+
                 }
                 
             }
@@ -62,9 +68,6 @@ public class Dish : MonoBehaviour
         if (other.CompareTag("Inplate"))
         {
             other.transform.SetParent(transform);
-            var ingController = other.GetComponent<IngredientController>();
-            ingController?.SetStateValue(StateEnum.plate, true);
-            currentIngredients.Add(ingController);
             CheckCurrentOrderIsComplete();
             Destroy(other.GetComponent<Rigidbody>());
         }
@@ -104,7 +107,7 @@ public class Dish : MonoBehaviour
         GameObject newChild = Instantiate(recipe, position);
         newChild.transform.SetParent(position);
         newChild.transform.localPosition = Vector3.zero;
-        newChild.transform.localRotation = Quaternion.identity;
-        newChild.transform.localScale = Vector3.one;
+        //newChild.transform.localRotation = Quaternion.identity;
+        //newChild.transform.localScale = Vector3.one;
     }
 }
