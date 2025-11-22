@@ -596,7 +596,7 @@ MonoBehaviour:
   playerCamera: {fileID: 4743285167923371539}
   interactableLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 51
   pickSystem: {fileID: 2105657216860144183}
 --- !u!1 &5508052774228713437
 GameObject:
@@ -624,8 +624,8 @@ Transform:
   m_GameObject: {fileID: 5508052774228713437}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.024, y: 0.038, z: 0.785}
-  m_LocalScale: {x: 0.48267135, y: 0.27780926, z: 0.7218465}
+  m_LocalPosition: {x: -0.024, y: 0.038, z: 1.002}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5964003605742499262}
@@ -669,9 +669,9 @@ Transform:
   m_GameObject: {fileID: 6650473814745957983}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.66, y: 0.75, z: 0.49}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 8568439963928534434}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
