@@ -1,25 +1,57 @@
 using UnityEngine;
-public class CutOutputStation: OutputStation
+using System.Collections;
+public class CutOutputStation : OutputStation
 {
-    [SerializeField] private Transform IngredientPosition;
-    private AudioSource Audio;
+    [Header("Animation")]
+    [SerializeField] private Animator anim;
+    [SerializeField] private float waitForAnim = 1f;
+    [SerializeField] private Transform cut;
 
-    void Start()
+    private GameObject currentObject;
+
+    protected override void Start()
     {
-        TryGetComponent(out Audio);
+        base.Start();
+        if(anim == null)
+            TryGetComponent(out anim);
     }
-
 
     public override void Generated(GameObject ingredientProccesed)
     {
-        ingredientProccesed.transform.position= IngredientPosition.transform.position;
-        Audio.Play();
-        if (ingredientProccesed.TryGetComponent(out IngredientState ingredient))
+        base.Generated(ingredientProccesed);
+        currentObject = ingredientProccesed;
+        currentObject.SetActive(true);
+        currentObject.layer = 2;
+        currentObject.transform.position = cut.position;
+
+        if (anim != null)
         {
-            ingredient.ChangeMesh(StateEnum.cut);
-            
-        };
-        
+            anim.SetTrigger("Play");
+        }
+    }
+
+    public override void Degenerated(GameObject ingredientProccesed)
+    {
+        base.Degenerated(currentObject);
+        currentObject = ingredientProccesed;
+
+        if (anim != null)
+        {
+            anim.SetTrigger("Stop");
+            StartCoroutine(Wait());
+        }
+    }
+
+    private IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(waitForAnim);
+        if (currentObject != null)
+            currentObject.transform.position = ingredientPosition.position;
+            currentObject.layer = 0;
+            currentObject.SetActive(true);
+            if (currentObject.TryGetComponent(out IngredientState ingredient))
+                ingredient.ChangeMesh(StateEnum.cut);
+
     }
 }
 

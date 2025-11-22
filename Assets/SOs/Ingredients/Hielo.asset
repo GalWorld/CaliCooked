@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Hielo
   m_EditorClassIdentifier: Assembly-CSharp::SOIngredient
   id: Hielo
+  color: {r: 0.617257, g: 0.8089548, b: 0.9150943, a: 1}
   States: 0100000003000000

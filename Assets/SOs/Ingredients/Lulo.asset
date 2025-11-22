@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Lulo
   m_EditorClassIdentifier: Assembly-CSharp::SOIngredient
   id: Lulo
+  color: {r: 0.4653135, g: 0.7830189, b: 0.16620687, a: 1}
   States: 000000000100000003000000
