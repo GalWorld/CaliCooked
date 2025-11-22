@@ -17,6 +17,7 @@ MonoBehaviour:
   description: 
   audio: {fileID: 0}
   patience: 20
+  model: {fileID: 3748874139669601650, guid: b3be3c2febd7b0c4d942cb8b07b77948, type: 3}
   ingredients:
   - {fileID: 11400000, guid: 6c30abf21d15ab342a1ed0f160036847, type: 2}
   - {fileID: 11400000, guid: d24035262fd43244e868d23dc9394adb, type: 2}

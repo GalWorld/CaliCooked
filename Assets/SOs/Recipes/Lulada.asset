@@ -17,6 +17,7 @@ MonoBehaviour:
   description: "Ac\xEDdo y frio m\xE1s sabroso"
   audio: {fileID: 0}
   patience: 20
+  model: {fileID: 4534593870764998475, guid: b362b8f08d450bf4aa7bf03b3179c35c, type: 3}
   ingredients:
   - {fileID: 11400000, guid: 49aa107221ec6ed428b52ff9bbd63a64, type: 2}
   - {fileID: 11400000, guid: 5732c1b43bc9fbf4e94f356af8fd29a3, type: 2}
