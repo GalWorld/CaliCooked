@@ -61,6 +61,14 @@ public class CrossHairController : MonoBehaviour
                     pickSystem.SetBox(box);
                 }
             }
+
+            if (hitObj.CompareTag("Station")&&hitObj.name == "Licuadora-1" ||hitObj.name == "Licuadora-2" ||hitObj.name == "Licuadora-3" )
+            {
+                if (hitObj.TryGetComponent(out BlendOutputStation blenOut))
+                {
+                    pickSystem.SetStationBlend(blenOut);
+                }
+            }
         }
     }
 }

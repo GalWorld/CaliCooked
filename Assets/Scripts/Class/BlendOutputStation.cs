@@ -14,6 +14,7 @@ public class BlendOutputStation : OutputStation
     private float targetSpeed;
     private Coroutine blendRoutine;
     private GameObject currentObject;
+    public AudioClip stopBlender;
 
     void Awake()
     {
@@ -104,5 +105,29 @@ public class BlendOutputStation : OutputStation
         }
 
         blendRoutine = null;
+
+
+       
+    }
+
+     public void FailBlen()
+    {
+       
+
+        StartBlend(true);
+        aud.Play();
+        
+        StartCoroutine(DisableSound());
+        
+    }
+
+
+    public IEnumerator DisableSound()
+    {
+        yield return new WaitForSeconds(5);
+         StartBlend(false);
+         aud.Stop();
+         aud.PlayOneShot(stopBlender);
+
     }
 }
