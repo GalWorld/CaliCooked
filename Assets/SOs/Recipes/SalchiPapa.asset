@@ -16,7 +16,7 @@ MonoBehaviour:
   name: SalchiPapa
   description: Algo pa echarle salsitas
   audio: {fileID: 0}
-  patience: 80
+  patience: 100
   model: {fileID: 3748874139669601650, guid: b3be3c2febd7b0c4d942cb8b07b77948, type: 3}
   ingredients:
   - {fileID: 11400000, guid: 6c30abf21d15ab342a1ed0f160036847, type: 2}
