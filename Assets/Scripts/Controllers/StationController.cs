@@ -10,7 +10,6 @@ public class StationController : MonoBehaviour
     private GameObject ingredientGO;
     private bool isCurrentCooking = false;
     private float currentCookingTime;
-
     public int CookingTime;
 
 
