@@ -6,6 +6,7 @@ public class Dish : MonoBehaviour
 {
     public bool isComplete;
     public Transform position;
+    public string currentOrder;
     public List<IngredientController> currentIngredients = new();
 
     private void Update() 
@@ -17,8 +18,7 @@ public class Dish : MonoBehaviour
     }
     private void CheckCurrentOrderIsComplete()
     {
-        isComplete = currentIngredients.TrueForAll(ingredient => ingredient.isComplete);
-        if (isComplete)
+        if (currentIngredients.TrueForAll(ingredient => ingredient.isComplete))
         {
             CompareDishVsRecipes();
         }
@@ -75,6 +75,10 @@ public class Dish : MonoBehaviour
 
     private void CompareDishVsRecipes()
     {
+        if (isComplete)
+        {
+            return;
+        }
         var dishIngredients = currentIngredients;
         var activeOrders = OrderManager.instance.activeOrders;
 
@@ -85,13 +89,13 @@ public class Dish : MonoBehaviour
 
             if (sameIngredients)
             {
-                OrderManager.instance.CompleteOrder(order.recipe.id);
-
+                currentOrder = order.recipe.id;
+                isComplete = true;
                 //Verificar si se destruye sin animacion, de lo contrario activar animacion trigger de destroy
                 ShowRecipe(order.recipe.model);
                 return;
             }
-        }
+        } isComplete = false;
     }
 
     private void ShowRecipe(GameObject recipe)
@@ -104,7 +108,7 @@ public class Dish : MonoBehaviour
                 
             }
         }
-        GameObject newChild = Instantiate(recipe, position);
+        GameObject newChild = Instantiate(recipe);
         newChild.transform.SetParent(position);
         newChild.transform.localPosition = Vector3.zero;
         //newChild.transform.localRotation = Quaternion.identity;

@@ -7,6 +7,7 @@ public class Waiter : MonoBehaviour
         if (dish.isComplete)
         {
             Destroy(dish.gameObject);
+            OrderManager.instance.CompleteOrder(dish.currentOrder);
             Debug.Log("Orden Entregada");
         }
         
