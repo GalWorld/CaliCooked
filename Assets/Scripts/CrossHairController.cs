@@ -20,6 +20,7 @@ public class CrossHairController : MonoBehaviour
         pickSystem.ClearIngredient();
         pickSystem.SetStation(null);
         pickSystem.SetBox(null);
+        pickSystem.SetDoor(null);
 
         Ray ray = new Ray(playerCamera.transform.position, playerCamera.transform.forward);
         Debug.DrawRay(playerCamera.transform.position, playerCamera.transform.forward * 2f, Color.red);
@@ -39,6 +40,10 @@ public class CrossHairController : MonoBehaviour
                 pickSystem.SetIngredient(hitObj);
             }
 
+            if (hitObj.CompareTag("Door"))
+            {
+                if (hitObj.TryGetComponent(out HingeDoor h)) pickSystem.SetDoor(h);
+            }
 
           
             if (hitObj.CompareTag("Station"))

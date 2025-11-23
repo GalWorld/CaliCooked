@@ -8,6 +8,7 @@ public class PickObject : MonoBehaviour, IInteractable
     private GameObject currentLookIngredient = null;
     private StationController currentLookStation = null;
     private BoxController currentLookBox = null;
+    private HingeDoor currentDoor = null;
 
     private GameObject pickedObject = null;
 
@@ -36,6 +37,12 @@ public class PickObject : MonoBehaviour, IInteractable
         if (currentLookBox != null && pickedObject == null)
         {
             currentLookBox.SpawnIngredient();
+            return;
+        }
+
+        if(currentDoor != null)
+        {
+            currentDoor.ToggleDoor();
             return;
         }
 
@@ -91,4 +98,11 @@ public class PickObject : MonoBehaviour, IInteractable
     {
         currentLookBox = box;
     }
+
+    public void SetDoor(HingeDoor door)
+    {
+        currentDoor = door;
+    }
 }
+
+

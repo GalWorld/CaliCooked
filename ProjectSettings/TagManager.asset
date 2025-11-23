@@ -10,6 +10,7 @@ TagManager:
   - Dish
   - Inplate
   - Box
+  - Door
   layers:
   - Default
   - TransparentFX
