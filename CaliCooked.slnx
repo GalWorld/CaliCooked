@@ -1,4 +1,5 @@
 ﻿<Solution>
   <Project Path="Assembly-CSharp.csproj" />
   <Project Path="Tripolygon.UModelerX.PureCode.Hub.Editor.csproj" />
+  <Project Path="Assembly-CSharp-firstpass.csproj" />
 </Solution>
