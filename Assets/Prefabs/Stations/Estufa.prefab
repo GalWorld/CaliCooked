@@ -181,6 +181,7 @@ GameObject:
   - component: {fileID: 7317259585895018091}
   - component: {fileID: 3703346831858559269}
   - component: {fileID: 932608313486595794}
+  - component: {fileID: 5275301141698959626}
   m_Layer: 0
   m_Name: Effect Light
   m_TagString: Untagged
@@ -5064,6 +5065,18 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &5275301141698959626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2479073586521665978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c048043ec94df364dba076ddb78913ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DisableVFXOnWebGL
 --- !u!1 &3221201399426647079
 GameObject:
   m_ObjectHideFlags: 0
@@ -5280,6 +5293,7 @@ GameObject:
   - component: {fileID: 7322049379146017541}
   - component: {fileID: 7247669197853177217}
   - component: {fileID: 6858216024841767360}
+  - component: {fileID: 4931294501423585737}
   m_Layer: 0
   m_Name: Fire
   m_TagString: Untagged
@@ -5445,6 +5459,18 @@ VFXRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &4931294501423585737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6601749244005176021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c048043ec94df364dba076ddb78913ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DisableVFXOnWebGL
 --- !u!1 &7632833488216091608
 GameObject:
   m_ObjectHideFlags: 0

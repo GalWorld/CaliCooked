@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dfcae9a7489d7b46a1b240b73938fdd, type: 3}
+  m_Name: Demo1.0
+  m_EditorClassIdentifier: Assembly-CSharp::SOClients
+  names:
+  - Manuela
+  - Tobias
+  - Ricardo
+  - David
+  - Diego
+  - Sergio
+  - Alabaricoque
+  - Jose
+  recipes:
+  - {fileID: 11400000, guid: 3a3ea1b56560dfe4b8bf7be26cbbe1a0, type: 2}
+  - {fileID: 11400000, guid: 6c0d06ab7d8e47e4c8b8b4254253e874, type: 2}
+  - {fileID: 11400000, guid: 778db04a983bd2746b19dbfe58824079, type: 2}
+  - {fileID: 11400000, guid: 85777e69e6f839945bee214325839ff3, type: 2}
