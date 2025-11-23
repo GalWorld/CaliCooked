@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SORecipe
   id: Empanada
   name: Empanada
-  description: "Pa comer con aj\xED voj ajbes"
+  description: "Pa comer con aj\xED voj jabes"
   audio: {fileID: 0}
-  patience: 40
+  patience: 90
   model: {fileID: 4977384334879943068, guid: 96b5b5e9446da3d448d231fa1a45f6fd, type: 3}
   ingredients:
   - {fileID: 11400000, guid: b82009a5bb222d34aa22c80c0deb2e3c, type: 2}

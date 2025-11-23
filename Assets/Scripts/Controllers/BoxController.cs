@@ -20,6 +20,6 @@ public class BoxController : MonoBehaviour
         Quaternion rot = spawnPoint != null ? spawnPoint.rotation : transform.rotation;
 
         Instantiate(ingredientPrefab, pos, rot);
-        Debug.Log("BoxController: Ingredient spawned.");
+        //Debug.Log("BoxController: Ingredient spawned.");
     }
 }

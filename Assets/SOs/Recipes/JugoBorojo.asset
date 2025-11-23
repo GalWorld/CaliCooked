@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SORecipe
   id: JugoBorojo
   name: Jugo De Borojo
-  description: 
+  description: Tengo sed de algo dulce
   audio: {fileID: 0}
-  patience: 20
+  patience: 40
   model: {fileID: 8294816505718420309, guid: 8bd48b4eac705b14dbde5790686d006c, type: 3}
   ingredients:
   - {fileID: 11400000, guid: 72581bf40b4c7a5429882d290618820d, type: 2}
