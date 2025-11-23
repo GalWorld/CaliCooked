@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
@@ -19,24 +20,21 @@ public class GameManager : MonoBehaviour
     public UnityEvent onFinishGame;
 
     public float timer = 0f;
+    [SerializeField] private TextMeshProUGUI timerText;
     public bool isTiming = false;
     private bool isFinished = false;
 
     private void Awake()
     {
-        if(instance == null)
-        {
-            instance = this;
-        }
+        instance = this;
+        StartTimer();
     }
 
     public void StartTimer()
     {
-        timer = 0f;
+        timer = timeGame;  // Inicia full
         isTiming = true;
         isFinished = false;
-
-        // If the game might already be paused, restore
         Time.timeScale = 1f;
     }
 
@@ -44,7 +42,7 @@ public class GameManager : MonoBehaviour
     {
         isTiming = !state;
 
-        if (freezeOnPause)
+        if (freezeOnPause == true) 
         {
             Time.timeScale = state ? 0f : 1f;
         }
@@ -52,24 +50,43 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        UpdateTimerUI();
+
         if (!isTiming || isFinished)
             return;
 
-        timer += Time.deltaTime;
+        // Gilberto Santarosa
+        timer -= Time.deltaTime;
 
-        if (timer >= timeGame)
+        if (timer <= 0f)
         {
-            timer = timeGame;
+            timer = 0f;
             isFinished = true;
             isTiming = false;
 
-            if (freezeOnFinish)
-            {
-                Time.timeScale = 0f;
-            }
+            GameFinished();
             onFinishGame?.Invoke();
 
-            Debug.Log("Timer finished! Game frozen.");
+            Debug.Log("Timer reached ZERO! Game finished.");
         }
+    }
+    private void UpdateTimerUI()
+    {
+        if (timerText == null) return;
+
+        // Format: MM:SS
+        int minutes = Mathf.FloorToInt(timer / 60f);
+        int seconds = Mathf.FloorToInt(timer % 60f);
+
+        timerText.text = $"{minutes:00}:{seconds:00}";
+    }
+    public void GameFinished()
+    {
+        Time.timeScale = 0f;
+        freezeOnFinish = true;
+    }
+    public float GetCurrentTime()
+    {
+        return timer;
     }
 }

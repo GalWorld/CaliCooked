@@ -7,6 +7,11 @@ public class HUDOrderItemTest : MonoBehaviour
     public Order order;
     public Slider patienceSlider;
     public TextMeshProUGUI nameClient, descOrder;
+    // private AudioSource audioSource;
+    // private void Start() 
+    // {
+    //     audioSource = GetComponent<AudioSource>();    
+    // }
     public void SetOrder(Order order)
     {
         this.order = order;
@@ -14,6 +19,7 @@ public class HUDOrderItemTest : MonoBehaviour
         descOrder.text = order.recipe.description ?? "";
         patienceSlider.maxValue = order.totalPatience;
         patienceSlider.value = order.totalPatience;
+        //audioSource.clip = order.recipe.audio;
     }
 
     void Update()

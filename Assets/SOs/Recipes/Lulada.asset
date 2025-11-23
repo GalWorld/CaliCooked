@@ -15,7 +15,7 @@ MonoBehaviour:
   id: Lulada
   name: Lulada
   description: "Ac\xEDdo y frio m\xE1s sabroso"
-  audio: {fileID: 0}
+  audio: {fileID: 8300000, guid: 20c99292d901c2142b124fcbf1e1f221, type: 3}
   patience: 60
   model: {fileID: 4534593870764998475, guid: b362b8f08d450bf4aa7bf03b3179c35c, type: 3}
   ingredients:
