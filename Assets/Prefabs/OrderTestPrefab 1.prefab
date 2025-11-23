@@ -988,6 +988,7 @@ MonoBehaviour:
     recipe: {fileID: 0}
     totalPatience: 0
     currentPatience: 0
+    audio: {fileID: 0}
   patienceSlider: {fileID: 7143152838948422802}
   nameClient: {fileID: 4095183776403111790}
   descOrder: {fileID: 8030255841185066580}
@@ -1042,11 +1043,11 @@ AudioSource:
   m_GameObject: {fileID: 8759361983172816598}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -2483843668945131477, guid: 9f813f492bca667499c5e1ed570f8f55, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 0.22
+  m_PlayOnAwake: 0
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0

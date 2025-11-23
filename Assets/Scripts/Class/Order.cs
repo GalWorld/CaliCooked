@@ -10,7 +10,7 @@ public class Order
 
     public float totalPatience;
     public float currentPatience;
-    //public AudioClip audio;
+    public AudioClip audio;
 
     public event Action<Order> OnExpired;
 
@@ -22,7 +22,7 @@ public class Order
         this.clientName = clientName;
         this.totalPatience = patience;
         this.currentPatience = patience;
-        //this.audio = audio;
+        this.audio = recipe.audio;
     }
 
     public void Tick(float deltaTime)
