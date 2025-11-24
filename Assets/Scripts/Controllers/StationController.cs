@@ -10,7 +10,6 @@ public class StationController : MonoBehaviour
     private GameObject ingredientGO;
     private bool isCurrentCooking = false;
     private float currentCookingTime;
-
     public int CookingTime;
 
 
@@ -23,7 +22,7 @@ public class StationController : MonoBehaviour
 
                 if (ingredientState != null && ingredientState != true && !isCooking)
                 {
-                    Debug.Log("Entró un ingrediente crudo en la estación");
+                    //Debug.Log("Entró un ingrediente crudo en la estación");
                     
                     currentIngredient = ingredient;     
                     
@@ -33,7 +32,7 @@ public class StationController : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("Este ingrediente ya está cocinado");
+                    //Debug.Log("Este ingrediente ya está cocinado");
                 }
             }
             else
@@ -47,7 +46,7 @@ public class StationController : MonoBehaviour
         if (isCooking && currentIngredient != null&&!isCurrentCooking)
         {
             isCurrentCooking=true;
-            Debug.Log("Empezando a cocinar");
+            //Debug.Log("Empezando a cocinar");
             ingredientGO = currentIngredient.gameObject;
             StartCoroutine(TimeForCooking());
 
@@ -55,7 +54,7 @@ public class StationController : MonoBehaviour
         }
         else
         {
-            Debug.Log("Aún no puedes cocinar, necesitas un ingresiente pelele");
+            //Debug.Log("Aún no puedes cocinar, necesitas un ingresiente pelele");
         }
 
        
