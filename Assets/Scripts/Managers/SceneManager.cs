@@ -7,6 +7,13 @@ public class SceneManager : MonoBehaviour
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
     }
+
+    public void LoadSceneInPause(string sceneName)
+    {
+        Time.timeScale = 1f;
+        UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
+    }
+
     public void QuitGame()
     {
         Application.Quit();

@@ -31,10 +31,14 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public ScoreManager scoreManager;
 
+    private SceneManager sceneManager;
+
     private void Awake()
     {
         instance = this;
         StartTimer();
+        Cursor.visible = false;
+        sceneManager = GetComponent<SceneManager>();
     }
 
     public void StartTimer()
@@ -89,13 +93,13 @@ public class GameManager : MonoBehaviour
     }
     public void GameFinished()
     {
+        Cursor.visible = true;
         scoreText.text = "Puntaje: " + scoreManager.GetCurrentScore().ToString();
         Feedback.ActivateGO();
-        DOVirtual.DelayedCall(2f, () =>
-    {
-        Time.timeScale = 0f;
-        freezeOnFinish = true;
-    });
+        DOVirtual.DelayedCall(5f, () =>
+        {
+            sceneManager.LoadSceneInPause("MainScene");
+        });
 
 
     }
