@@ -83,7 +83,7 @@ public class UIPanelAnimator : MonoBehaviour
     }
 
 
-    private Tween Play(UIAnimationSettings settings)
+    public Tween Play(UIAnimationSettings settings)
     {
         DOTween.Kill(rect);
         DOTween.Kill(canvasGroup);

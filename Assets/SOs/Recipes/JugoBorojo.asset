@@ -15,7 +15,7 @@ MonoBehaviour:
   id: JugoBorojo
   name: Jugo De Borojo
   description: Tengo sed de algo dulce
-  audio: {fileID: 8300000, guid: 20c99292d901c2142b124fcbf1e1f221, type: 3}
+  audio: {fileID: 8300000, guid: 46707f702ee84d641ae9dc1f3410cc91, type: 3}
   patience: 60
   model: {fileID: 8294816505718420309, guid: 8bd48b4eac705b14dbde5790686d006c, type: 3}
   ingredients:

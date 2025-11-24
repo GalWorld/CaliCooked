@@ -1,6 +1,9 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.Events;
+using DG.Tweening;
+using UnityEngine.UI;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class GameManager : MonoBehaviour
 {
@@ -23,6 +26,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI timerText;
     public bool isTiming = false;
     private bool isFinished = false;
+    [Header("Feedbacks")]
+    public UIPanelAnimator Feedback;
+    public TextMeshProUGUI scoreText;
+    public ScoreManager scoreManager;
 
     private void Awake()
     {
@@ -42,7 +49,7 @@ public class GameManager : MonoBehaviour
     {
         isTiming = !state;
 
-        if (freezeOnPause == true) 
+        if (freezeOnPause == true)
         {
             Time.timeScale = state ? 0f : 1f;
         }
@@ -82,8 +89,15 @@ public class GameManager : MonoBehaviour
     }
     public void GameFinished()
     {
+        scoreText.text = "Puntaje: " + scoreManager.GetCurrentScore().ToString();
+        Feedback.ActivateGO();
+        DOVirtual.DelayedCall(2f, () =>
+    {
         Time.timeScale = 0f;
         freezeOnFinish = true;
+    });
+
+
     }
     public float GetCurrentTime()
     {
