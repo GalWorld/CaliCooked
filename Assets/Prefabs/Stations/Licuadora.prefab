@@ -476,6 +476,7 @@ MonoBehaviour:
   aud: {fileID: 9177678202311907837}
   liquidRenderer: {fileID: 8409643403309933454}
   blendLerpTime: 0.15
+  stopBlender: {fileID: 8300000, guid: fe51affc3e5a76945b93a1e50bc463b7, type: 3}
 --- !u!82 &9177678202311907837
 AudioSource:
   m_ObjectHideFlags: 0

@@ -29,9 +29,9 @@ public class PickObject : MonoBehaviour, IInteractable
             currentLookStation.Cook();
             return;
         }
-        else if (currentLookStation != null&& pickedObject==null &&blendOutputStation !=null)
+        if (currentLookStation != null&& pickedObject==null &&blendOutputStation !=null)
         {
-            probabilityBlendFail=8;
+            probabilityBlendFail=5;
             randomValue= Random.Range(0,10);
             Debug.Log(randomValue);
             if(randomValue > probabilityBlendFail)
