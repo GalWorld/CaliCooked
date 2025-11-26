@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
         instance = this;
         StartTimer();
         Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
         sceneManager = GetComponent<SceneManager>();
     }
 
@@ -80,6 +81,8 @@ public class GameManager : MonoBehaviour
 
             Debug.Log("Timer reached ZERO! Game finished.");
         }
+
+        
     }
     private void UpdateTimerUI()
     {
@@ -94,11 +97,14 @@ public class GameManager : MonoBehaviour
     public void GameFinished()
     {
         Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         scoreText.text = "Puntaje: " + scoreManager.GetCurrentScore().ToString();
         Feedback.ActivateGO();
         DOVirtual.DelayedCall(5f, () =>
         {
             sceneManager.LoadSceneInPause("MainScene");
+            
+        
         });
 
 
